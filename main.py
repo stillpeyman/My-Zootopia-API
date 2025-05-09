@@ -1,62 +1,76 @@
 # %%
 import json
+from dotenv import load_dotenv
+import os
+import requests
 
 
-def load_data(file_path):
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
+HOST = "api.api-ninjas.com"
+
+
+def get_animal_name():
     """
-    Load data from a JSON file.
+    Prompt user for an animal name and return it.
     """
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    return data
-
-
-def select_skin_type(animals):
-    """
-    Prompt user to select a skin type and return it.
-    """
-    skin_types = set()
-
-    for animal in animals:
-        skin_type = animal.get('characteristics', {}).get('skin_type')
-        # Skip if skin_type is missing or None
-        if skin_type:
-            skin_types.add(skin_type)
-    
-    skin_types = sorted(list(skin_types))
-    print('\nList of Skin Types:')
-    for i, skin_type in enumerate(skin_types, start=1):
-        print(f'{i}. {skin_type}')
-    
-    # Create a lookup to handle case-insensitive user input 
-    skin_type_lookup = {s.lower(): s for s in skin_types}
-
     while True:
-        user_input = input('\nEnter skin type to filter animals: ').strip().lower()
-
-        if user_input in skin_type_lookup:
-            return skin_type_lookup[user_input]
+        animal_name = input('Enter the name of the animal: ').strip()
+        if animal_name:
+            return animal_name
         else:
-            print('Invalid input. Please choose from the displayed list.')
+            print('Invalid input. Please enter a valid animal name.')
 
 
-def generate_animals_info(animals, skin):
+def get_json(animal_name):
+    """
+    Fetches animal data based on animal name, and saves it to 'response.json'.
+    """
+    api_url = f"https://{HOST}/v1/animals?name={animal_name}"
+    headers = {
+        'X-Api-Key': API_KEY
+    }
+
+    # simple connection test
+    try:
+        response = requests.get(api_url, headers=headers)
+
+        # Check if the response is successful
+        if response.status_code == 200:
+            animal_data = response.json()
+            with open("response.json", "w") as fileobj:
+                json.dump(animal_data, fileobj)
+            return animal_data
+        
+        else:
+            print(f"Error occurred: {response.status_code}")
+
+    except requests.exceptions.ConnectionError as e:
+        print("ConnectionError: ", e)
+
+    except requests.exceptions.Timeout as e:
+        print("Timeout: ", e)
+
+    except requests.exceptions.RequestException as e:
+        print("RequestException: ", e)
+
+
+def generate_animal_info(animals, name):
     """
     Generate HTML list items for animals matching the selected skin type.
     """
     # Define empty string
     output = ''
 
-    # Tracks if at least one matching animal was found
-    found = False
-
+    if not animals:
+        output = f'''
+        <div class="message-card">
+            <p>Dude, "{name}" is a no-show! Try another animal.</p>\n'
+        </div>
+        '''
+        
     for animal in animals:
-        if animal.get('characteristics').get('skin_type') == skin:
-            output += serialize_animal(animal)
-            found = True
-    
-    if not found:
-        output = '<p>No animal found for that skin type!</p>\n'
+        output += serialize_animal(animal)
 
     return output
 
@@ -110,12 +124,12 @@ def write_to_file(file_path, content):
 def main():
     """
     Main program flow: 
-    load data, filter by skin type, 
-    generate and save HTML.
+    load data, generate,
+    and save HTML.
     """
-    animals_data = load_data('animals_data.json')
-    skin_type = select_skin_type(animals_data)
-    animal_info = generate_animals_info(animals_data, skin_type)
+    animal_name = get_animal_name()
+    animal_data = get_json(animal_name)
+    animal_info = generate_animal_info(animal_data, animal_name)
     template = read_template('animals_template.html')
     animals_html = merge_template_with_data(template, animal_info)
     write_to_file('animals.html', animals_html)
