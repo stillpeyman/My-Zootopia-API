@@ -14,16 +14,17 @@ def get_animal_name():
     Prompt user for an animal name and return it.
     """
     while True:
-        animal_name = input('Enter the name of the animal: ').strip()
+        animal_name = input('\nEnter the name of the animal: ').strip()
         if animal_name:
             return animal_name
         else:
             print('Invalid input. Please enter a valid animal name.')
 
 
-def get_json(animal_name):
+def fetch_data(animal_name):
     """
-    Fetches animal data based on animal name, and saves it to 'response.json'.
+    Fetches the animals data for the animal 'animal_name'.
+    Returns: a list of animals, each animal is a dictionary.
     """
     api_url = f"https://{HOST}/v1/animals?name={animal_name}"
     headers = {
@@ -53,17 +54,3 @@ def get_json(animal_name):
     except requests.exceptions.RequestException as e:
         print("RequestException: ", e)
 
-
-def main():
-    """
-    Main program flow: 
-    load data, filter by skin type, 
-    generate and save HTML.
-    """
-    animal_name = get_animal_name()
-    animal_data = get_json(animal_name)
-    print(animal_data) 
-    
-
-if __name__ == "__main__":
-    main()
