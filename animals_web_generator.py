@@ -27,15 +27,34 @@ def serialize_animal(animal):
     """
     output = ''
     output += ' <li class="cards__item">\n'
-    output += '     <div class="card__title">{}</div>\n'.format(animal.get('name', 'Unknown'))
+
+    if animal.get('name'):
+        output += '     <div class="card__title">{}</div>\n'.format(animal['name'])
     output += '     <div class="card__text">\n'
     output += '         <ul>\n'
-    output += '             <li><strong>Scientific Name:</strong> {}</li>\n'.format(animal.get('taxonomy', {}).get('scientific_name', 'Unknown'))
-    output += '             <li><strong>Type:</strong> {}</li>\n'.format(animal.get('characteristics', {}).get('type', 'Unknown'))
-    output += '             <li><strong>Skin Type:</strong> {}</li>\n'.format(animal.get('characteristics', {}).get('skin_type', 'Unknown'))
-    output += '             <li><strong>Diet:</strong> {}</li>\n'.format(animal.get('characteristics', {}).get('diet', 'Unknown'))
-    output += '             <li><strong>Location:</strong> {}</li>\n'.format(animal.get('locations', [None])[0] or 'Unknown')
-    output += '             <li><strong>Slogan:</strong> {}</li>\n'.format(animal.get('characteristics', {}).get('slogan', 'Unknown'))
+
+    taxonomy = animal.get('taxonomy', {})
+    characteristics = animal.get('characteristics', {})
+    locations = animal.get('locations', [])
+
+    if taxonomy.get('scientific_name'):
+        output += '             <li><strong>Scientific Name:</strong> {}</li>\n'.format(taxonomy['scientific_name'])
+    
+    if characteristics.get('type'):
+        output += '             <li><strong>Type:</strong> {}</li>\n'.format(characteristics['type'])
+    
+    if characteristics.get('skin_type'):
+        output += '             <li><strong>Skin Type:</strong> {}</li>\n'.format(characteristics['skin_type'])
+    
+    if characteristics.get('diet'):
+        output += '             <li><strong>Diet:</strong> {}</li>\n'.format(characteristics['diet'])
+    
+    if locations and locations[0]:
+        output += '             <li><strong>Location:</strong> {}</li>\n'.format(locations[0])
+    
+    if characteristics.get('slogan'):
+        output += '             <li><strong>Slogan:</strong> {}</li>\n'.format(characteristics['slogan'])
+
     output += '         </ul>\n'
     output += '     </div>\n'
     output += ' </li>\n'
@@ -65,6 +84,7 @@ def write_to_file(file_path, content):
     """
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
+    print("HTML file successfully generated :)")
 
 
 def main():

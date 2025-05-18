@@ -1,0 +1,415 @@
+<html>
+    <head>
+        <style>
+        @gray-darker:               #444444;
+        @gray-dark:                 #696969;
+        @gray:                      #999999;
+        @gray-light:                #cccccc;
+        @gray-lighter:              #ececec;
+        @gray-lightest:             lighten(@gray-lighter,4%);
+
+
+        html {
+          background-color: #ffe9e9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40pt;
+            font-weight: normal;
+        }
+
+        body {
+          font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          letter-spacing: 0;
+          padding: 1rem;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -moz-font-feature-settings: "liga" on;
+          width: 900px;
+          margin: auto;
+        }
+
+        .cards {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .cards__item {
+          background-color: white;
+          border-radius: 0.25rem;
+          box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+          overflow: hidden;
+          padding: 1rem;
+          margin: 50px;
+        }
+
+        .card__title {
+          color: #696969;
+          font-size: 1.25rem;
+          font-weight: 300;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 1rem;
+        }
+
+        .card__text {
+          flex: 1 1 auto;
+          font-size: 0.95rem;
+          line-height: 2;
+          margin-bottom: 1.25rem;
+        }
+
+        .card__text ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card__text li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .card__text li strong {
+          color: #696969;
+        }
+
+        .message-card {
+          text-align: center;
+          margin: 2rem auto;
+          padding: 2rem;
+          background-color: #fff3cd;
+          border: 1px solid #ffeeba;
+          border-radius: 0.25rem;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #000000;
+          max-width: 600px;
+          box-shadow: 0 10px 20px -10px rgba(0,0,0,0.2);
+        }
+
+        </style>
+    </head>
+    <body>
+      <h1>My Animal Repository</h1>
+      <ul class="cards">
+           <li class="cards__item">
+     <div class="card__title">Basking Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Cetorhinus Maximus</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> The second biggest fish in the world!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Blue Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Prionace glauca</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Bonnethead Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Sphyrna tiburo</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Omnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Bull Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Carcharhinus Leucas</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Scales</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Unpredictable and aggressive temperament!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Cookiecutter Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Dalatiidae</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Frilled Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Chlamydoselachus anguineus</li>
+             <li><strong>Skin Type:</strong> Scales</li>
+             <li><strong>Diet:</strong> Omnivore</li>
+             <li><strong>Location:</strong> Least Concern</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Goblin Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Mitsukurina owstoni</li>
+             <li><strong>Skin Type:</strong> Scales</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Least Concern</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Great White Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Carcharodon carcharias</li>
+             <li><strong>Skin Type:</strong> Tough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Can grow to more than 8 meters long!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Greenland Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Somniosus microcephalus</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Grey Reef Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Carcharhinus Amblyrhynchos</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> One of the most common shark species!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Hammerhead Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Sphyrnidae</li>
+             <li><strong>Type:</strong> sphyrnids</li>
+             <li><strong>Skin Type:</strong> Skin</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Found in coastal waters around the world!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Horn Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Heterodontus francisci</li>
+             <li><strong>Type:</strong> Shark</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Endemic to the Californian coast!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Megamouth Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Megachasma pelagios</li>
+             <li><strong>Type:</strong> Cetorhinidae</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Nurse Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Ginglymostoma cirratum</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Commonly found in Central American waters!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Porbeagle Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Lamna nasus</li>
+             <li><strong>Type:</strong> Shark</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Reef Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Salmon Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Lamna ditropis</li>
+             <li><strong>Type:</strong> fish</li>
+             <li><strong>Skin Type:</strong> Plate-like scales</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Sand Tiger Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Sixgill shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Shark</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Sleeper Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Type:</strong> Shark</li>
+             <li><strong>Skin Type:</strong> Scales</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Spinner Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Carcharhinus brevipinna</li>
+             <li><strong>Skin Type:</strong> Tough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Tiger Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Galeocerdo Cuvier</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> The fourth biggest species of shark in the world!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Viper shark (dogfish)</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Trigonognathus kabeyai</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Rough</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Whale Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Rhincodon Typus</li>
+             <li><strong>Type:</strong> Fish</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Carnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> The largest species of fish in the world!</li>
+         </ul>
+     </div>
+ </li>
+ <li class="cards__item">
+     <div class="card__title">Zebra Shark</div>
+     <div class="card__text">
+         <ul>
+             <li><strong>Scientific Name:</strong> Stegostoma Fasciatum</li>
+             <li><strong>Type:</strong> Salt</li>
+             <li><strong>Skin Type:</strong> Smooth</li>
+             <li><strong>Diet:</strong> Omnivore</li>
+             <li><strong>Location:</strong> Ocean</li>
+             <li><strong>Slogan:</strong> Can get to be 30 years old in the wild!</li>
+         </ul>
+     </div>
+ </li>
+
+      </ul>
+    </body>
+</html>
